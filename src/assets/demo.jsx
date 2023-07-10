@@ -63,73 +63,65 @@ export const Login = () => {
     return emailRegex.test(email);
   };
 
-
-
   return (
     <>
-      <section className="background-radial-gradient overflow-hidden d-flex align-items-center bg-opacity-50">
-        <div className="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
-          <div className="row gx-lg-5 align-items-center mb-5">
-            <div className="col-lg-8 mb-5 mb-lg-0 text-center">
+    <section className="background-radial-gradient overflow-hidden d-flex align-items-center bg-opacity-50">
+      <div className="container px-4 py-1 px-md-1 text-center text-lg-start my-5">
+        <div className="row gx-lg-5 align-items-center mb-5">
+          <div className="col-lg-8 mb-1 mb-lg-0 text-center">
+            <img src={logo} className="mb-2 logo" alt="Logo" />
+            <p className="mb-2 title">
+              Sistema de Planillas de MDP
+            </p>
+            <p className="mb-4 subtitle">
+              Un entorno donde valoramos y potenciamos el talento de nuestros colaboradores
+            </p>
+          </div>
 
-              <img src={logo} className="mb-2 logo"/>
-              <p className="mb-2 title">
-                Sistema de Planillas de MDP
-              </p>
-              <p className="mb-4 subtitle">
-                Un entorno donde valoramos y potenciamos el talento de nuestros colaboradores
-              </p>
-            </div>
-
-            <div className="col-lg-4 mb-5 mb-lg-0 position-relative text-center">
-              <div className="card bg-glass">
-                <div className="card-body px-4 py-5 px-md-5">
-
-                <form onSubmit={handleSubmit} className="form-login">
-                    <div>
-                      <h3 className="form-title">LOGIN</h3>
-                    </div>
-                    <div className="mb-4">
-                      <MicrosoftLogin className="rounded-4" clientId={'f8c7976f-3e93-482d-88a3-62a1133cbbc3'} authCallback={authHandler} />
-                    </div>
-
-                    <div className="form-outline mb-4">
-                      <label className="form-label text-white d-block form-label-sm text-start">Email address</label>
-                      {emailError && <div className="invalid-feedback">{emailError}</div>}
-                      <input 
-                        type="email" 
-                        id="form3Example3" 
-                        className={`form-control rounded-white bg-opacity-70 ${emailError && 'is-invalid'}`} 
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Enter your email address"
-                      />
-                    </div>
-
-                    <div className="form-outline mb-4">
-                      <label className="form-label text-white d-block form-label-sm text-start">Password</label>
-                      {passwordError && <div className="invalid-feedback">{passwordError}</div>}
-                      <input 
-                        type="password" 
-                        id="form3Example4" 
-                        className={`form-control rounded-white bg-opacity-70 text-secondary ${passwordError && 'is-invalid'}`}
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Enter your password"
-                      />
-                    </div>
-
-                    <button type="submit" className="btn btn-primary btn-block mb-4 btn-login">
-                      Iniciar Sesión
-                    </button>
-                  </form>
-                  {validateForm && <div className="alert alert-success mt-3" role="alert">Autenticación exitosa! Ingresando ...</div>}
+          <div className="col-lg-4 mb-5 mb-lg-0 position-relative">
+            <div className="card bg-glass p-4">
+              <form onSubmit={handleSubmit} className="form-login">
+                <h3 className="form-title mb-4">LOGIN</h3>
+                <div className="mb-4 ">
+                  <MicrosoftLogin className="rounded-4" clientId={'f8c7976f-3e93-482d-88a3-62a1133cbbc3'} authCallback={authHandler} />
                 </div>
-              </div>
+
+                <div className="form-outline mb-4">
+                  <label className="form-label text-white d-block form-label-sm text-start">Email address</label>
+                  {emailError && <div className="invalid-feedback">{emailError}</div>}
+                  <input
+                    type="email"
+                    id="form3Example3"
+                    className={`form-control rounded-white bg-opacity-70 ${emailError && 'is-invalid'}`}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email address"
+                  />
+                </div>
+
+                <div className="form-outline mb-4">
+                  <label className="form-label text-white d-block form-label-sm text-start">Password</label>
+                  {passwordError && <div className="invalid-feedback">{passwordError}</div>}
+                  <input
+                    type="password"
+                    id="form3Example4"
+                    className={`form-control rounded-white bg-opacity-70 text-secondary ${passwordError && 'is-invalid'}`}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Enter your password"
+                  />
+                </div>
+
+                <button type="submit" className="btn btn-primary btn-block mb-4 btn-login">
+                  Iniciar Sesión
+                </button>
+              </form>
+              {validateForm && <div className="alert alert-success mt-3" role="alert">Autenticación exitosa! Ingresando ...</div>}
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
     </>
   );
 };
